@@ -71,10 +71,36 @@ def task_1_desired_places_new(blocks: List[Any],
             if current_block[place]:
                 overall_block_score += 2
             if not blocks[i][place] and i > 0:
-                block_scores[i - 1]['score'] += 1
+                print(block_score['id'])
+                print(block_score['id'] - 1)
+                print(block_scores[block_score['id'] - 1])
+                block_scores[block_score['id'] - 1]['score'] += 1
         block_score['score'] = overall_block_score
-        block_scores[block_score['id']]=block_score['score']
-    
-    best_choice=min(block_scores, key=block_scores.get())
+        block_scores[block_score['id']] = block_score['score']
+
+    best_choice = min(block_scores, key=block_scores.get)
+
+    return blocks[best_choice]
+
+
+def task_1_desired_places_new_2nd(blocks: List[Any],
+                                  desired_places: List[str]) -> int:
+    """Returns a house with optimum conditions"""
+    best_choice = -1
+
+    block_scores = {}
+    for i in range(len(blocks)):
+        current_block = blocks[i]
+        block_score = {'id': i}
+        overall_block_score = 0
+        for place in desired_places:
+            if current_block[place]:
+                overall_block_score += 1
+        block_score['score'] = overall_block_score
+        block_scores[block_score['id']] = block_score['score']
+
+    print(block_scores)
+    best_choice = max(block_scores, key=block_scores.get)
+    print(best_choice)
 
     return blocks[best_choice]
