@@ -11,18 +11,18 @@ def task_2_int(input_str: str) -> Tuple[int, int]:
         return 0, 0
 
     input_str += "_"  # simplifies work with the last number
-    current = ""
-    for i in range(len(input_str)):
-        if 47 < ord(input_str[i]) < 58:
-            current += input_str[i]
-        elif ord(input_str[i]) == 45 and current == "":
-            current += "-"
+    intermediate_result = ""
+    for current_char in input_str:
+        if 47 < ord(current_char) < 58:
+            intermediate_result += current_char
+        elif ord(current_char) == 45 and intermediate_result == "":
+            intermediate_result += "-"
         else:
-            if len(current) > 0:
-                current_number = int(current)
+            if len(intermediate_result) > 0:
+                current_number = int(intermediate_result)
                 sum_of_ints += current_number
                 max_int = current_number if current_number > max_int else max_int
-                current = ""
+                intermediate_result = ""
 
     return sum_of_ints, max_int
 
@@ -36,18 +36,18 @@ def task_2_float(input_str: str) -> Tuple[float, float]:
         return 0, 0
 
     input_str += "_"  # simplifies work with the last number
-    current = ""
-    for i in range(len(input_str)):
-        if 47 < ord(input_str[i]) < 58 or ord(input_str[i]) == 46:
-            current += input_str[i]
-        elif ord(input_str[i]) == 45 and current == "":
-            current += "-"
+    intermediate_result = ""
+    for current_char in input_str:
+        if 47 < ord(current_char) < 58 or ord(current_char) == 46:
+            intermediate_result += current_char
+        elif ord(current_char) == 45 and intermediate_result == "":
+            intermediate_result += "-"
         else:
-            if len(current) > 0:
-                current_number = float(current)
+            if len(intermediate_result) > 0:
+                current_number = float(intermediate_result)
                 sum_of_floats += current_number
                 max_float = current_number if current_number > max_float else max_float
-                current = ""
+                intermediate_result = ""
 
     return sum_of_floats, max_float
 
@@ -56,13 +56,13 @@ def task_2_word(input_str: str) -> str:
     """Finds the longest word"""
     result = ""
 
-    current = ""
-    for i in range(len(input_str)):
-        if 64 < ord(input_str[i]) < 91 or 96 < ord(input_str[i]) < 123:
-            current += input_str[i]
+    intermediate_result = ""
+    for current_char in input_str:
+        if 64 < ord(current_char) < 91 or 96 < ord(current_char) < 123:
+            intermediate_result += current_char
         else:
-            if len(current) > 0:
-                result = current if len(current) > len(result) else result
-                current = ""
+            if len(intermediate_result) > 0:
+                result = intermediate_result if len(intermediate_result) > len(result) else result
+                intermediate_result = ""
 
     return result
