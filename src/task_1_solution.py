@@ -19,8 +19,6 @@ def task_1_desired_places(blocks: List[Any], desired_places: List[str]) -> int:
         block_score['score'] = overall_block_score
         block_scores[block_score['id']] = block_score['score']
 
-    print(block_scores)
     best_choice = max(block_scores, key=block_scores.get)
-    print(best_choice)
 
     return blocks[best_choice]
