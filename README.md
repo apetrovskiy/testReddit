@@ -27,3 +27,6 @@ https://codeshare.io/eVjpJb
 s = "cat rocket tac testing dog setting carrot fix drone"
 
 # cat, tac, testing, setting
+
+https://codeshare.io/qP9lDA
+4) Найти стедентов, пропустивших математику и/или информатику и найти студента с наивысшим баллом
