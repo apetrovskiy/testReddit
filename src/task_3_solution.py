@@ -10,7 +10,7 @@ def task_3_anagrams(input_list: List[str]) -> List[str]:
 
     intermittent = {}
     for word in input_list:
-        current_sorted = ''.join(sorted(word))
+        current_sorted = "".join(sorted(word))
         if current_sorted not in intermittent.keys():
             intermittent[current_sorted] = word
         else:

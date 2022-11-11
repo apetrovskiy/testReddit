@@ -62,8 +62,11 @@ def task_2_word(input_str: str) -> str:
             intermediate_result += current_char
         else:
             if len(intermediate_result) > 0:
-                result = intermediate_result if len(intermediate_result) > len(
-                    result) else result
+                result = (
+                    intermediate_result
+                    if len(intermediate_result) > len(result)
+                    else result
+                )
                 intermediate_result = ""
 
     return result
